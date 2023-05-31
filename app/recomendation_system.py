@@ -18,6 +18,7 @@ def load_and_get_recommendations(title):
         df = pickle.load(file)
 
     df['kalori'] = df['kalori'].astype(str)
+    df['nama'] = df['nama'].str.lower()
 
     # Converts a collection of raw documents to a matrix of TF-IDF features
     tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 2), min_df=0, stop_words='english')
